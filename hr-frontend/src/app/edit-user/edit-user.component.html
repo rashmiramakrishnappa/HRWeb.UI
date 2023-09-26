@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required minlength="2">    
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            <div *ngIf="firstName.errors.required">First Name is required.</div>
+            <div *ngIf="firstName.errors.minlength">First Name must be at least 2 characters long.</div>
+        </div>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required minlength="2">
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.errors.required">Last Name is required.</div>
+            <div *ngIf="lastName.errors.minlength">Last Name must be at least 2 characters long.</div>
+        </div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" [(ngModel)]="user.address" required minlength="20">
+    <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="address.errors.required">Address is required.</div>
+        <div *ngIf="address.errors.minlength">Address must be at least 20 characters long.</div>
+    </div>
+    <label for="mobilePhone">Mobile Phone:</label>
+    <input type="number" id="mobilePhone" name="mobilePhone" [(ngModel)]="user.mobilePhone" required minlength="10">
+    <div *ngIf="mobilePhone.invalid && (mobilePhone.dirty || mobilePhone.touched)">
+        <div *ngIf="mobilePhone.errors.required">Mobile Phone is required.</div>
+        <div *ngIf="mobilePhone.errors.minlength">Mobile Phone must be 10 digits.</div>
+    </div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required minlength="10">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required">Email is required.</div>
+        <div *ngIf="email.errors.minlength">Invalid Email Address.</div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
